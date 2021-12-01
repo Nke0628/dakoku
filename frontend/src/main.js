@@ -4,7 +4,12 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 
-Vue.config.productionTip = false
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+Vue.use(BootstrapVue)
+
+Vue.config.productionTip = true
 Vue.prototype.$axios = axios
 
 new Vue({
