@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Src\controller';
+    protected $namespace = '';
 
     /**
      * The path to the "home" route for your application.
