@@ -9,9 +9,9 @@
 </head>
 <body>
 <div id="app"></div>
-{{--npm run prroducitonしたら自動的にこのファイルは作り変えられるので、git管理はこのIPでOK--}}
-<script src="http://127.0.0.1:8080/js/app.js"></script>
-<script src="http://127.0.0.1:8080/js/chunk-vendors.js"></script>
+{{--npm run prroducitonしたら自動的にこのファイルは作り変えられるので管理はこのIPでOK--}}
+<script src="http://192.168.33.10:8080/js/app.js"></script>
+<script src="http://192.168.33.10:8080/js/chunk-vendors.js"></script>
 <!-- built files will be auto injected -->
 </body>
 </html>
