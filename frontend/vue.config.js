@@ -32,6 +32,8 @@ module.exports = {
         : 'index.html',
 
     devServer: {
+        host: '0.0.0.0',
+        useLocalIp: true,
         proxy: {
             '/api': {
                 target: 'http://192.168.33.10:8000'
