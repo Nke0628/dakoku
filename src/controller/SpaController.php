@@ -3,6 +3,7 @@
 namespace Src\controller;
 
 use App\Http\Controllers\Controller;
+use App\User;
 
 class SpaController extends Controller
 {
@@ -13,6 +14,7 @@ class SpaController extends Controller
      */
     public function index()
     {
+        User::find(1);
         return view('index');
     }
 }
