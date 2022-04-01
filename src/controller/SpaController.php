@@ -3,6 +3,7 @@
 namespace Src\controller;
 
 use App\Http\Controllers\Controller;
+use App\User;
 
 class SpaController extends Controller
 {
