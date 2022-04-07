@@ -1,0 +1,7 @@
+parameters:
+    paths:
+        - app
+        - bootstrap
+        - config
+        - src
+    level: 6

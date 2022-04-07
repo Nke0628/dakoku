@@ -14,7 +14,6 @@ class SpaController extends Controller
      */
     public function index()
     {
-        User::find(1);
         return view('index');
     }
 }
