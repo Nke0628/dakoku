@@ -4,8 +4,6 @@
 namespace Src\resource;
 
 
-use phpDocumentor\Reflection\Types\Integer;
-
 class ErrorResource extends BaseResource
 {
     /**
@@ -21,9 +19,9 @@ class ErrorResource extends BaseResource
     /**
      * ErrorResource constructor.
      * @param array $output
-     * @param Integer $statusCode
+     * @param int $statusCode
      */
-    public function __construct( array $output, Integer $statusCode )
+    public function __construct( array $output, int $statusCode )
     {
         parent::__construct();
         $this->output = $output;
@@ -40,5 +38,13 @@ class ErrorResource extends BaseResource
             'status' => 'error',
             'result' => $this->output
         ];
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatusCode()
+    {
+        return $this->statusCode;
     }
 }
