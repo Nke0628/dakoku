@@ -19,4 +19,4 @@ COPY ./docker/app/php.ini /usr/local/etc/php/php.ini
 
 COPY --from=composer:2.0 /usr/bin/composer /usr/bin/composer
 
-# ENTRYPOINT ["./docker/app/startup.sh"]
+ENTRYPOINT ["./docker/app/startup.sh"]
