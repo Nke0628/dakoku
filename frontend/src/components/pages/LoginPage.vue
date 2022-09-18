@@ -57,7 +57,7 @@ export default {
         }),
         async handleLogin() {
             if (this.loginForm.email === "") {
-                alert("emailが入力されておりません。");
+                alert("メールアドレスが入力されておりません。");
                 return;
             }
             if (this.loginForm.password === "") {
@@ -83,5 +83,10 @@ h1 .main-title {
 
 .title-text {
     text-align: left;
+}
+
+.hoge {
+    display: fle;
+    width: 80%;
 }
 </style>
