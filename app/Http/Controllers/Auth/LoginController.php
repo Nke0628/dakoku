@@ -43,4 +43,22 @@ class LoginController extends Controller
     {
         return $user;
     }
+
+    /**
+     * ログインAPIモック
+     */
+    protected function login()
+    {
+        return response()->json([
+            'status'=>'success',
+            'result'=>[
+                'login'=>true,
+                'user'=>[
+                    'id'=>1,
+                    'name'=>'nk0628',
+                    'mailAddress'=>'test@gmail.com'
+                ]
+            ]
+        ]);
+    }
 }

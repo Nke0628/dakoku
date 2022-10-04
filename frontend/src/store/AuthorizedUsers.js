@@ -1,29 +1,34 @@
-import {requestLogin} from '@/api/AuthApi'
+import { requestLogin } from "@/api/AuthApi";
 
 const state = {
-    user : {
-        id:"",
-        name:"",
-        email: ""
-    }
+    login: false,
+    user: {
+        id: "",
+        name: "",
+        mailAddress: "",
+    },
 };
 
 const actions = {
-    async actionRequestLogin({commit},data){
+    async actionRequestLogin({ commit }, data) {
         const response = await requestLogin(data);
-        commit('setUserProfile',response);
-    }
-}
+        commit("setAuthorized", response.login);
+        commit("setUserProfile", response.user);
+    },
+};
 
 const mutations = {
-    setUserProfile(state, payload){
-        state.user = payload
-    }
-}
+    setAuthorized(state, payload) {
+        state.login = payload;
+    },
+    setUserProfile(state, payload) {
+        state.user = payload;
+    },
+};
 
 export default {
     namespaced: true,
     state,
     actions,
-    mutations
-}
+    mutations,
+};
