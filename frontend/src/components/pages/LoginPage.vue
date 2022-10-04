@@ -22,7 +22,7 @@
                 <b-input v-model="loginForm.password" type="password" />
             </b-col>
         </b-row>
-        <b-row>
+        <b-row class="mb-5">
             <b-col>
                 <b-button
                     @click="handleLogin"
@@ -35,13 +35,18 @@
                 </b-button>
             </b-col>
         </b-row>
+        <SagyoCard :is-company-theme="true" :is-edit="true"></SagyoCard>
     </b-container>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import SagyoCard from "../atoms/SagyoCard.vue";
 export default {
     name: "LoginPage",
+    components: {
+        SagyoCard,
+    },
     data() {
         return {
             loginForm: {
