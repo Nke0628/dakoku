@@ -64,9 +64,16 @@ export default {
                 alert("パスワードが入力されておりません。");
                 return;
             }
-            this.loadingLogin = true;
-            await this.actionRequestLogin(this.loginForm);
-            this.loadingLogin = false;
+
+            try {
+                this.loadingLogin = true;
+                await this.actionRequestLogin(this.loginForm);
+                this.$router.push({ name: "Dakoku" });
+            } catch (e) {
+                alert(e.message);
+            } finally {
+                this.loadingLogin = false;
+            }
         },
     },
 };
