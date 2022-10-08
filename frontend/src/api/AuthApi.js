@@ -13,4 +13,14 @@ const requestLogin = async (data) => {
     };
 };
 
-export { requestLogin };
+const requestAuthCheck = async (data) => {
+    try {
+        const response = await new AjaxRequest().post("/auth_check", data);
+        const login = response.data.result.login;
+        return login;
+    } catch (e) {
+        alert("システムエラーです。管理者までご連絡おねがいします。");
+    }
+};
+
+export { requestLogin, requestAuthCheck };

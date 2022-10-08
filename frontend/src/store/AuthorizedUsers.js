@@ -9,6 +9,10 @@ const state = {
     },
 };
 
+const getters = {
+    isAuthorized: (state) => state.login,
+};
+
 const actions = {
     async actionRequestLogin({ commit }, data) {
         const response = await requestLogin(data);
@@ -28,6 +32,7 @@ const mutations = {
 
 export default {
     namespaced: true,
+    getters,
     state,
     actions,
     mutations,

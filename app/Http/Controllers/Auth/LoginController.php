@@ -61,4 +61,17 @@ class LoginController extends Controller
             ]
         ]);
     }
+
+    /**
+     * ログインチェックAPIモック
+     */
+    public function authCheck()
+    {
+        return response()->json([
+            'status'=>'success',
+            'result'=>[
+                'login'=>true
+            ]
+            ]);
+    }
 }
