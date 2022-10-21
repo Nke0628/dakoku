@@ -49,6 +49,7 @@ class LoginController extends Controller
      */
     protected function login()
     {
+        // 成功時
         return response()->json([
             'status'=>'success',
             'result'=>[
@@ -60,6 +61,22 @@ class LoginController extends Controller
                 ]
             ]
         ]);
+
+        // 失敗時(エラー)
+        // return response()->json([
+        //     'status'=>'error',
+        //     'result'=>[
+        //         'message' => 'ログイン処理に失敗しました。'
+        //         ]
+        // ],500);
+
+        // 失敗時(バリデーション)
+        // return response()->json([
+        //     'status'=>'error',
+        //     'result'=>[
+        //         'message' => 'メールアドレスとパスワードが異なります。'
+        //         ]
+        // ],422);
     }
 
     /**

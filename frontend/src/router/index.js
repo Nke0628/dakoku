@@ -27,17 +27,22 @@ const router = new VueRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-    const authCheck = await requestAuthCheck();
-    console.log(store.getters["AuthorizedUsers/isAuthorized"]);
-    if (store.getters["AuthorizedUsers/isAuthorized"] && authCheck) {
-        if (to.name === "Login") {
-            next({ name: "Dakoku" });
+    try {
+        const authCheck = await requestAuthCheck();
+        if (store.getters["AuthorizedUsers/isAuthorized"] && authCheck) {
+            if (to.name === "Login") {
+                next({ name: "Dakoku" });
+            }
+            next();
+        } else if (to.name === "Login") {
+            next();
+        } else {
+            next({ name: "Login" });
         }
-        next();
-    } else if (to.name === "Login") {
-        next();
-    } else {
-        next({ name: "Login" });
+    } catch (e) {
+        const errorMsg =
+            e.response.data.result.message || "システムエラーが発生しました。";
+        alert(errorMsg);
     }
 });
 

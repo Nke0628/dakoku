@@ -70,7 +70,10 @@ export default {
                 await this.actionRequestLogin(this.loginForm);
                 this.$router.push({ name: "Dakoku" });
             } catch (e) {
-                alert(e.message);
+                const errorMsg =
+                    e.response.data.result.message ||
+                    "システムエラーが発生しました。";
+                alert(errorMsg);
             } finally {
                 this.loadingLogin = false;
             }
