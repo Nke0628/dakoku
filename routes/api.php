@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,6 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::get('/app', 'TestController@test');
+// 認証
+Route::post('/login',[LoginController::class,'login']);
+Route::post('/auth_check','App\Http\Controllers\Auth\LoginController@authCheck');

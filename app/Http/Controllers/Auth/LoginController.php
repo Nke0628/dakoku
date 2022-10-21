@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Vyuldashev\LaravelOpenApi\Attributes as OpenApi;
 
+#[OpenApi\PathItem]
 class LoginController extends Controller
 {
     /*
@@ -45,9 +47,12 @@ class LoginController extends Controller
     }
 
     /**
-     * ログインAPIモック
+     * Create new user.
+     *
+     * Creates new user or returns already existing user by email.
      */
-    protected function login()
+    #[OpenApi\Operation]
+    public function login()
     {
         return response()->json([
             'status'=>'success',
@@ -63,8 +68,11 @@ class LoginController extends Controller
     }
 
     /**
-     * ログインチェックAPIモック
+     * Create new user.
+     *
+     * Creates new user or returns already existing user by email.
      */
+    #[OpenApi\Operation]
     public function authCheck()
     {
         return response()->json([
