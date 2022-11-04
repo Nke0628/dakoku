@@ -17,4 +17,5 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::get('/app', 'TestController@test');
+// 打刻
+Route::get('/dakoku','Src\controller\DakokuController@getDakoku');
