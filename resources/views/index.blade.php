@@ -10,8 +10,8 @@
 <body>
 <div id="app"></div>
 {{--npm run prroducitonしたら自動的にこのファイルは作り変えられるので管理はこのIPでOK--}}
-<script src="http://localhost:8080/js/app.js"></script>
-<script src="http://localhost:8080/js/chunk-vendors.js"></script>
+<script src="http://localhost:3000/js/app.js"></script>
+<script src="http://localhost:3000/js/chunk-vendors.js"></script>
 <!-- built files will be auto injected -->
 </body>
 </html>
