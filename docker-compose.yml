@@ -1,27 +1,31 @@
-version: '3.9'
-
+version: "3.9"
 services:
   nginx:
-    build: 
+    build:
       context: .
       dockerfile: ./docker/nginx/Dockerfile
     ports:
-      - '8081:80'
+      - "8000:80"
     depends_on:
       - app
     volumes:
       - ./:/var/www/html
-
   app:
-    build: 
+    build:
       context: .
       dockerfile: ./docker/app/Dockerfile
     volumes:
       - ./:/var/www/html
-    # tty: true
-    # stdin_open: true
-    # command: tail -f /dev/null  
-
+  node:
+    build:
+      context: .
+      dockerfile: ./docker/node/Dockerfile
+    ports:
+      - "3000:8080"
+    volumes:
+      - ./frontend/:/frontend
+    tty: true
+    command: bash -c "cd /frontend && yarn run serve"
   db:
     build:
       context: .
@@ -31,8 +35,9 @@ services:
       MYSQL_DATABASE: laravel_db
       MYSQL_USER: laravel_user
       MYSQL_PASSWORD: laravel_pass
-      TZ: 'Asia/Tokyo'
+      TZ: "Asia/Tokyo"
     volumes:
       - ./docker/db/data:/var/lib/mysql
     ports:
       - 3306:3306
+    platform: linux/amd64
